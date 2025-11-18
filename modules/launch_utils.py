@@ -38,9 +38,9 @@ def check_python_version():
     micro = sys.version_info.micro
 
     if is_windows:
-        supported_minors = [10]
+        supported_minors = [12]
     else:
-        supported_minors = [7, 8, 9, 10, 11]
+        supported_minors = [7, 8, 9, 10, 11, 12]
 
     if not (major == 3 and minor in supported_minors):
         errors.print_error_explanation(f"""
@@ -330,7 +330,7 @@ def get_cuda_comp_cap():
 
 def early_access_blackwell_wheels():
     """For Blackwell GPUs, use Early Access PyTorch Wheels provided by Nvidia"""
-    print('deprecated early_access_blackwell_wheels')
+    print('deprecated early_access_blackwell_wheels')													 
     if all([
             os.environ.get('TORCH_INDEX_URL') is None,
             sys.version_info.major == 3,
